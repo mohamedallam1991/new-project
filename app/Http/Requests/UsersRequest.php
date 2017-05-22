@@ -24,8 +24,8 @@ class UsersRequest extends Request
     public function rules()
     {
         return [
-            'name'=>'required',
-            'email'=>'required',
+            'name'=>'required|unique',
+            'email'=>'required|unique',
             'role_id'=>'required',
             'is_active'=>'required',
             'password'=>'required'

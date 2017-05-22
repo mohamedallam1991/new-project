@@ -17,10 +17,10 @@
         </tr>
     </thead>
     <tbody>
-
+    <tr>
             @if($users)
             @foreach($users as $user)
-                <tr>
+
                 <td>{{$user->id}}</td>
                 <td>{{$user->name}}</td>
                 <td>{{$user->role->name}}</td>
@@ -28,10 +28,9 @@
                 <td>{{$user->email}}</td>
                 <td>{{$user->created_at->diffforhumans()}}</td>
                 <td>{{$user->updated_at->diffforhumans()}}</td>
-                </tr>
+    </tr>
             @endforeach
             @endif
-
     </tbody>
 </table>
 

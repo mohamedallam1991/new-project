@@ -3,11 +3,12 @@
 @section('content')
 
 <h1>Users</h1>
-
-<table class="table table-hover">
+<div class="col-sm-9">
+<table class="table table-striped  table-hover table-condensed table-hover">
     <thead>
         <tr>
             <th>Id</th>
+            <th>Photo</th>
             <th>Full Name</th>
             <th>Role</th>
             <th>Status</th>
@@ -22,8 +23,16 @@
             @foreach($users as $user)
 
                 <td>{{$user->id}}</td>
-                <td>{{$user->name}}</td>
-                <td>{{$user->role->name}}</td>
+                <td>
+                    <img class="img-responsive img-rounded" alt="" width="100px" height="100" src="{{$user->photo ? $user->photo->file : 'http://placehold.it/350x150'}}" >
+                    {{--@if($user->photo)--}}
+                        {{--<img height="50" src="{{$user->photo->file}}" alt="">--}}
+                    {{--@else()--}}
+                        {{--{{'User has no Photo'}}--}}
+                    {{--@endif--}}
+                </td>
+                <td><a href="{{route('admin.users.edit', $user->id)}}">{{$user->name}}</a></td>
+                <td>{{$user->role ? $user->role->name : 'has no Role' }}</td>
                 <td>{{$user->is_active == 1? 'Active' : 'Not Active'}}</td>
                 <td>{{$user->email}}</td>
                 <td>{{$user->created_at->diffforhumans()}}</td>
@@ -33,6 +42,6 @@
             @endif
     </tbody>
 </table>
-
+</div>
 
 @stop

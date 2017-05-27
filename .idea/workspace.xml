@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c5c1e31-281d-4f4e-97ba-1046348de634" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminPostsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminPostsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/posts/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/posts/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/posts/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/posts/index.blade.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,7 +37,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminPostsController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AdminPostsController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminPostsController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
@@ -47,6 +45,16 @@
               <folding>
                 <element signature="e#39#56#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -146,35 +154,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/users/create.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1032">
-              <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-              <folding>
-                <marker date="1495806821360" expanded="true" signature="9:24" ph="..." />
-                <marker date="1495806821360" expanded="true" signature="36:45" ph="..." />
-                <marker date="1495806821360" expanded="true" signature="107:194" ph="..." />
-                <marker date="1495806821360" expanded="true" signature="239:270" ph="..." />
-                <marker date="1495806821360" expanded="true" signature="285:370" ph="..." />
-                <marker date="1495806821360" expanded="true" signature="429:462" ph="..." />
-                <marker date="1495806821360" expanded="true" signature="481:569" ph="..." />
-                <marker date="1495806821360" expanded="true" signature="624:658" ph="..." />
-                <marker date="1495806821360" expanded="true" signature="673:758" ph="..." />
-                <marker date="1495806821360" expanded="true" signature="813:851" ph="..." />
-                <marker date="1495806821360" expanded="true" signature="866:996" ph="..." />
-                <marker date="1495806821360" expanded="true" signature="1051:1087" ph="..." />
-                <marker date="1495806821360" expanded="true" signature="1102:1158" ph="..." />
-                <marker date="1495806821360" expanded="true" signature="1217:1256" ph="..." />
-                <marker date="1495806821360" expanded="true" signature="1275:1362" ph="..." />
-                <marker date="1495806821360" expanded="true" signature="1418:1477" ph="..." />
-                <marker date="1495806821360" expanded="true" signature="1500:1515" ph="..." />
-                <marker date="1495806821360" expanded="true" signature="1565:1586" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -236,6 +215,7 @@
         <option value="$PROJECT_DIR$/resources/views/admin/posts/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdminPostsController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/posts/create.blade.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -620,12 +600,12 @@
       <workItem from="1495709810459" duration="8039000" />
       <workItem from="1495787043659" duration="8610000" />
       <workItem from="1495876498189" duration="4714000" />
-      <workItem from="1495919111202" duration="1983000" />
+      <workItem from="1495919111202" duration="2397000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112551000" />
+    <option name="totallyTimeSpent" value="112965000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1376" height="744" extended-state="6" />
@@ -662,13 +642,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gulpfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1098,6 +1071,14 @@
           <folding>
             <element signature="e#39#56#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

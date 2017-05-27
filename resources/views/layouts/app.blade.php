@@ -26,6 +26,8 @@
     </style>
 </head>
 <body id="app-layout">
+
+    <!-- Navigation -->
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
@@ -53,6 +55,7 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
+
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>
@@ -69,8 +72,16 @@
                     @endif
                 </ul>
             </div>
+            
         </div>
     </nav>
+
+
+
+
+
+
+
 
     @yield('content')
 

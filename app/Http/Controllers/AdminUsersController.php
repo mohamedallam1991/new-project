@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Session;
 use App\Http\Requests\UsersRequest;
 use App\Http\Requests\UsersEditRequest;
 use App\Photo;
@@ -72,6 +72,8 @@ class AdminUsersController extends Controller
         }
 
         User::create($input);
+        Session::flash('created_user','The user has been created');
+
         return redirect('/admin/users');
     }
 
@@ -121,10 +123,21 @@ class AdminUsersController extends Controller
         if($file = $request->file('photo_id')){
             $name = time() . $file->getClientOriginalName();
             $file->move('images', $name);
+
+
+            //mytriying to update
+//            $update = User::findOrFail($user)->photo_id;
+//            $photo = Photo::findOrFail($update);
+//            $photo = $photo->update(['file'=>$name]);
+
+
+            // here start the tright code
             $photo = Photo::create(['file'=>$name]);
             $input['photo_id']= $photo->id;
         }
         $user->update($input);
+
+        Session::flash('updated_user','The user has been updated');
         return redirect('admin/users');
     }
 
@@ -137,5 +150,24 @@ class AdminUsersController extends Controller
     public function destroy($id)
     {
         //
+
+        $user = User::findOrFail($id);
+
+        $photo = $user->photo_id;
+        $delete = Photo::findorFail($photo);
+
+        unlink(public_path() . $user->photo->file);
+
+        $delete->delete();
+
+        $user->delete();
+
+
+
+        Session::flash('deleted_user','The user has been deleted');
+
+        return redirect('/admin/users');
+
+
     }
 }

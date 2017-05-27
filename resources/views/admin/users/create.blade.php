@@ -5,7 +5,7 @@
 
     <h1>Create Users</h1>
 
-
+<div class="container">
     {!! Form::open(['method'=>'POST', 'action'=>'AdminUsersController@store', 'files'=>true]) !!}
 
     <div class="form-group">
@@ -38,8 +38,11 @@
     </div>
 
     {!! Form::close() !!}
+</div>
+    <div class="row">
+        @include('includes.form_error')
 
-@include('includes.form_error')
+    </div>
 
 
 

@@ -1,10 +1,19 @@
 @extends('layouts.admin')
 
 @section('content')
+    @if(Session::has('deleted_user'))
+        <p class="bg-danger">{{session('deleted_user')}}</p>
+    @endif
+    @if(Session::has('updated_user'))
+        <p class="bg-info">{{session('updated_user')}}</p>
+    @endif
+    @if(Session::has('created_user'))
+        <p class="bg-success">{{session('created_user')}}</p>
+    @endif
 
 <h1>Users</h1>
-<div class="col-sm-9">
-<table class="table table-striped  table-hover table-condensed table-hover">
+<div class="col-sm-12">
+<table class="table table-striped table-hover table-condensed table-hover">
     <thead>
         <tr>
             <th>Id</th>

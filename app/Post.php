@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Post extends Model
 {
@@ -28,6 +29,21 @@ class Post extends Model
         return $this->belongsTo('App\Category');
     }
 
+    public function comments () {
+        return $this->hasMany('App\Comment');
+    }
+    use Sluggable;
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source'    => 'title',
+                'save_to'   => 'slug',
+                'on_update' => 'true',
+            ]
+        ];
+    }
 
 
 }

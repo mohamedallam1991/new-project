@@ -8,6 +8,7 @@ use App\Post;
 use App\Http\Requests\PostsCreateRequest;
 
 use Illuminate\Http\Request;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
@@ -22,7 +23,7 @@ class AdminPostsController extends Controller
     public function index()
     {
         //
-        $posts = Post::all();
+        $posts = Post::paginate(10);
         return view('admin.posts.index', compact('posts'));
     }
 
@@ -33,11 +34,7 @@ class AdminPostsController extends Controller
      */
     public function create()
     {
-
         $categories = Category::lists('name','id')->all();
-
-
-
         return view('admin.posts.create', compact('categories'));
     }
 
@@ -51,28 +48,21 @@ class AdminPostsController extends Controller
     {
         //
         $input = $request->all();
-
         $user = Auth::user();
-
         if($file = $request->file('photo_id')){
-
             // assignthe name to the photo
             $name = time() . $file->getClientOriginalName();
-
             //to move the photo to directory
             $file->move('images', $name);
-
             //create the photo onthe table
             $photo = Photo::create(['file'=>$name]);
-
             // to assign the new photo id to the post
             $input['photo_id'] =$photo->id;
     }
 
+
         $user->posts()->create($input);
-
         return redirect('/admin/posts');
-
     }
 
     /**
@@ -96,10 +86,7 @@ class AdminPostsController extends Controller
     {
         //
         $post = Post::findOrFail($id);
-
-
         $categories = Category::lists('name','id')->all();
-
         return view('admin.posts.edit', compact('post','categories'));
     }
 
@@ -114,16 +101,11 @@ class AdminPostsController extends Controller
     {
         //
         $input = $request->all();
-
         if($file = $request->file('photo_id')){
             $name = time() . $file->getClientOriginalName();
-
             $file->move('images', $name);
-
             $photo = Photo::create(['file'=>$name]);
-
             $input['photo_id']= $photo->id;
-
 //            $post = Auth::user()->posts()->whereId($id)->first();
 //
 //            $update = Post::findOrFail($post)->photo_id;
@@ -135,12 +117,8 @@ class AdminPostsController extends Controller
 //            $input['photo_id'] = $photo->id;
         }
         Auth::user()->posts()->whereId($id)->first()->update($input);
-
         return redirect('/admin/posts');
-
 //        Auth::user()->posts()->whereId($id)->first();
-
-
     }
 
     /**
@@ -153,13 +131,19 @@ class AdminPostsController extends Controller
     {
         //
         $post = Post::findOrFail($id);
-
         $photo = $post->photo_id;
         $delete = Photo::findorFail($photo);
         unlink(public_path() . $post->photo->file);
         $delete->delete();
         $post->delete();
-
         return redirect('/admin/posts');
+    }
+
+    public function post ($slug) {
+        $post = Post::where('slug',$slug)->first();
+//        $post = Post::find($id);
+//        return $post;
+        $comments = $post->comments()->whereIsActive(1)->get();
+        return view('post', compact('post','comments'));
     }
 }
